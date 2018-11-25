@@ -1,2 +1,2 @@
-#iKitchen
-Hello Welcome to iKitchen App.
+
+Hello Welcome to iKitchen Website.
