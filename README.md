@@ -1,2 +1,2 @@
-#My_iKitchen_Website
+#iKitchen
 Hello Welcome to iKitchen App.
