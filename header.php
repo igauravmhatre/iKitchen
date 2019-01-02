@@ -4,27 +4,26 @@
 <title>iKitchen</title>
 
 
-
+<link href="css/style.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="css/lightbox.css">
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
-
+<!-- jQuery (necessary JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 
 
 
 
 <!-- jQuery (necessary JavaScript plugins) -->
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script> -->
 <script type="text/javascript">
 	$(document).ready(function(){
 
@@ -46,13 +45,13 @@ $('body').fadeIn(500);
 <span style="color: #0000FF; text-decoration: underline; line-height: 0px !important; cursor: pointer; position: fixed; bottom: 0px; right: 15px; z-index: 20000000;" id="phplive_btn_1543877586" onclick="phplive_launch_chat_0()"></span>
 <script data-cfasync="false" type="text/javascript">
 
-(function() {
-var phplive_e_1543877586 = document.createElement("script") ;
-phplive_e_1543877586.type = "text/javascript" ;
-phplive_e_1543877586.async = true ;
-phplive_e_1543877586.src = "https://t2.phplivesupport.com/igauravmhatre/js/phplive_v2.js.php?v=0|1543877586|2|" ;
-document.getElementById("phplive_btn_1543877586").appendChild( phplive_e_1543877586 ) ;
-})() ;
+// (function() {
+// var phplive_e_1543877586 = document.createElement("script") ;
+// phplive_e_1543877586.type = "text/javascript" ;
+// phplive_e_1543877586.async = true ;
+// phplive_e_1543877586.src = "https://t2.phplivesupport.com/igauravmhatre/js/phplive_v2.js.php?v=0|1543877586|2|" ;
+// document.getElementById("phplive_btn_1543877586").appendChild( phplive_e_1543877586 ) ;
+// })() ;
 
 </script>
 
@@ -90,7 +89,7 @@ document.getElementById("phplive_btn_1543877586").appendChild( phplive_e_1543877
 			 <div class="top-menu">	 
 			 <div class="content white">
 				 <!-- navbar new -->
-			<nav class="navbar navbar-expand-lg navbar-default">
+			<nav class="navbar navbar-light navbar-expand-lg navbar-default">
 				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
