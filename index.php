@@ -5,10 +5,10 @@ include_once 'dbconnect.php';
 include 'header.php';
 $query="SELECT * FROM banner";
 $fire = mysqli_query($con,$query);
-$i=2;
+$i=3;
 //$row = mysqli_fetch_assoc($fire);
 ?>
-<div class="row">
+<div class="row add">
 	<div class="col-md-6">
 		<div class="banner-info">
 			 <h2>Hello</h2>
@@ -19,35 +19,42 @@ $i=2;
 			 <a class="btn-right" href="about.php">Read more</a>
 		 </div>
 	</div>
-	<div class="col-md-6 advertisement">
-		<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="2000" id="bs-carousel">
-  <!-- Overlay -->
-  <div class="overlay"></div>
-  
-  <!-- Wrapper for slides -->
+<div class="col-md-6">
+	 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" interval="1000">
+
   <div class="carousel-inner">
-    <div class="item slides active">
-      <div class="slide-1"></div>
-      <div class="hero">
-        <img src="images/chinese.jpg" width="100%" height="100%">
-      </div>
+    <div class="carousel-item active">
+      <img src="images/chinese.jpg" width="100%" height="100%">
     </div>
-	<?php
-	while($row=mysqli_fetch_assoc($fire)){
-	?>
-    <div class="item slides">
-      <div class="slide-<?php $i++; ?>"></div>
-      <div class="hero">        
-        <img src="images/<?php echo $row['banner_image'];?>" width="100%" height="100%">
-      </div>
+    <?php
+			while($row=mysqli_fetch_assoc($fire)){
+			?>
+    <div class="carousel-item<?php $i++; ?>">
+      <img src="images/<?php echo $row['banner_image'];?>" width="100%" height="100%">
     </div>
-	<?php } ?>
+    
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-	</div>
-</div>
+<?php }?>
+	 	</div>
+
+	 </div>
+
+
 
 	 </div>	 
-</div>
+
+	</div>
+	 	
+
+
 <!---->
 <div class="welcome">
 	 <div class="container">
@@ -61,10 +68,10 @@ $i=2;
 <div class="company">
 	 <div class="container">
 		 <h3>Services</h3>
-		 <div class="service-grids">
+		 <div class="row service-grids">
 		  <div class="col-md-4 commpany-grid">
 				 <div class="grid-pic">
-					 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					 <i class="fas fa-check-square"></i>
 				 </div>
 				 <div class="grid-info">
 					 <h4>Quality Control</h4>
@@ -74,7 +81,7 @@ $i=2;
 		  </div>
 		  <div class="col-md-4 commpany-grid">
 				 <div class="grid-pic">
-					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					<i class="fas fa-check-square"></i>
 				 </div>
 				 <div class="grid-info">
 					 <h4>Best Recipes</h4>
@@ -84,7 +91,7 @@ $i=2;
 		  </div>
 		  <div class="col-md-4 commpany-grid">
 				 <div class="grid-pic">
-					  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					  <i class="fas fa-check-square"></i>
 				 </div>
 				 <div class="grid-info">
 					 <h4>Customer Support</h4>
@@ -95,128 +102,11 @@ $i=2;
 			<div class="clearfix"></div>
 			</div>
 	  </div>
+
 </div>		 
 <!---->
-<!-- <div class="special">
-	 <div class="container">
-		 <h3>Our Specials</h3>
-		 <div class="arrival-grids">			 
-			 <ul id="flexiselDemo1">
-				 <li>
-					 <a href="recipes.html"><img src="images/s1.jpg" alt=""/>
-					 <h4>Prawns Fry</h4>
-					 </a>
-				 </li>
-				 <li>
-					 <a href="recipes.html"><img src="images/s4.jpg" alt=""/>
-					 <h4>Chilli Carne</h4>
-					 </a>
-				 </li>
-				 <li>
-					 <a href="recipes.html"><img src="images/s3.jpg" alt=""/>
-					 <h4>Grill Fry</h4>
-					 </a>
-				 </li>
-				 <li>
-					 <a href="recipes.html"><img src="images/s2.jpg" alt=""/>
-					 <h4>Prawns Soup</h4>
-					 </a>
-				 </li>
-				 <li>
-					 <a href="recipes.html"><img src="images/s4.jpg" alt=""/>
-					 <h4>Chilli Carne</h4>
-					 </a>
-				 </li>
-				 <li>
-					 <a href="recipes.html"><img src="images/s3.jpg" alt=""/>
-					 <h4>Grill Fry</h4>
-					 </a>
-				 </li>
-				</ul>
-				<script type="text/javascript">
-				 $(window).load(function() {			
-				  $("#flexiselDemo1").flexisel({
-					visibleItems: 4,
-					animationSpeed: 1000,
-					autoPlay: false,
-					autoPlaySpeed: 3000,    		
-					pauseOnHover:true,
-					enableResponsiveBreakpoints: true,
-					responsiveBreakpoints: { 
-						portrait: { 
-							changePoint:480,
-							visibleItems: 1
-						}, 
-						landscape: { 
-							changePoint:640,
-							visibleItems: 2
-						},
-						tablet: { 
-							changePoint:768,
-							visibleItems: 3
-						}
-					}
-				});
-				});
-				</script>
-				<script type="text/javascript" src="js/jquery.flexisel.js"></script>			 
-		  </div>
 
-	 </div>
-</div> -->
-<!---->
-<!-- <div class="latest_news">
-	 <div class="container">
-	     <div class="news-sec">
-			 <div class="col-md-6 news">
-					 <div class="news-head">
-						 <h3>Latest News</h3>						 
-					 </div>
-					 <div class="news_grid">
-						 <img src="images/l1.jpg" class="img-responsive" alt=""/>
-						 <h4><a href="about.html">Mauris hendrerit ex id leo elementum congue.</a></h4>
-						 <p class="date">19th June | 10:00 - 12:00</p>
-						 <p>Praesent accumsan augue dolor, vel eleifend lorem pellentesque egestas. Ut sit amet iaculis erat. maximus non aliquam a, consequat eget enim. Donec eu magna pellentesque, placerat tortor non,  Cras venenatis sodales nibh non finibus.</p>
-						 <a class="read" href="about.html">Read More...</a>
-					 </div>
-			 </div>
-			 <div class="col-md-6 testimonal">
-					 <div class="testi-head">
-						 <h3>Testimonials</h3>
-					 </div>
-					 <div class="testi-grids">
-						 <div class="testi-grid">
-							 <div class="people">
-								 <img src="images/t1.jpg" class="img-responsive" alt=""/>
-							 </div>
-							 <div class="testi-info">
-								 <h4>Christopher</h4>
-								 <a href="about.html">CEO</a>
-								 <p>Nullam viverra porttitor est at vestibulum. Quisque sodales justo eu erat malesuada rutrum. Ut orci velit, dignissim ut dui convallis, sagittis cursus sem.</p>
-							 </div>
-							 <div class="clearfix"></div>
-						 </div>
-						 <div class="testi-grid testi2">
-							 <div class="people">
-								 <img src="images/t2.jpg" class="img-responsive" alt=""/>
-							 </div>
-							 <div class="testi-info">
-								 <h4>Ainsley</h4>
-								 <a href="about.html">Manager</a>
-								 <p>Nullam viverra porttitor est at vestibulum. Quisque sodales justo eu erat malesuada rutrum. Ut orci velit, dignissim ut dui convallis, sagittis cursus sem.</p>
-							 </div>
-							 <div class="clearfix"></div>
-						 </div>
-					 </div>
-			  </div>
-			  <div class="clearfix"></div>
-		 </div>
-	 </div>
-</div> -->
-<!----> 
-<?php
-include 'footer.php'; 
+
+			<?php 
+include 'footer.php';
 ?>
-<!---->  
-</body>
-</html>

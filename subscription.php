@@ -12,7 +12,7 @@ include 'header.php';
             <div class="gallery pages">
             		<div class="container">
                     <h2>Subscription</h2>
-            		<div class="card text-center">
+            		<div class="col-md-6 offset-md-3 card text-center">
                         <div class="card-header">
                                 <?php
                                 if($_SESSION){
@@ -71,7 +71,7 @@ include 'header.php';
 <?php
 
     }?>
-
+</div>
 </div>
 <?php
  include('modal.php');

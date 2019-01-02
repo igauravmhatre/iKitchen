@@ -9,6 +9,7 @@ if(isset($_POST['add'])){
 	$title = mysqli_real_escape_string($con,$_POST['title']);
 	$des = mysqli_real_escape_string($con,$_POST['des']);
 	$image = mysqli_real_escape_string($con,$_POST['image']);
+	$protein = mysqli_real_escape_string($con,$_POST['protein']);
 	$user = $_SESSION['usr_id'];
 	if(strlen($title) < 1) {
         $error = true;
@@ -17,9 +18,13 @@ if(isset($_POST['add'])){
 	if(strlen($des) < 1) {
         $error = true;
         $des_error = "Description Can't be empty";
+	}
+	if(strlen($protein) < 1) {
+        $error = true;
+        $des_error = "Protein not selected";
     }
 	if(!$error){
-		$fire = mysqli_query($con, "INSERT INTO content(title,des,image,user_id) VALUES('" . $title . "', '" . $des . "', '" . $image . "','" . $user . "')");
+		$fire = mysqli_query($con, "INSERT INTO content(title,des,image,content_protein,user_id) VALUES('" . $title . "', '" . $des . "', '" . $image . "','" . $protein ."','" . $user . "')");
 		$successmsg = "Recipe Added!";
 	}
 
@@ -33,13 +38,24 @@ if(isset($_POST['add'])){
 <div class="gallery pages">
 	  <div class="container">
 	  <h2>Add Recipe</h2>	
-		  <div class="col-md-4 col-md-offset-4 well con-add">
+		  <div class="col-md-6 offset-md-3 well con-add">
 	  
 	  <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="pushDBform">
 	  			<div class="form-group">
     				<label for="exampleTextarea">Recipe Name:</label>
     				<input type="text" class="form-control" name = 'title' id="" aria-describedby="" placeholder="Enter Recipe Name">
 					<span class="text-danger"><?php if (isset($title_error)) echo $title_error; ?></span>
+				  </div>
+				  <div class="form-group">
+    				<label for="exampleTextarea">Type of Protein</label>
+                        <select name="protein">
+                          <option value="Pork">Pork</option>
+						  <option value="Steak">Steak</option>
+						  <option value="Chicken">Chicken</option>
+						  <option value="Fish">Fish</option>
+						  <option value="Veg">Veg</option>
+                        </select>
+					<span class="text-danger"><?php if (isset($protein_error)) echo $protein_error; ?></span>
 	  			</div>
 	  			<div class="form-group">
     				<label for="exampleTextarea">Recipe Decription:</label>
@@ -81,6 +97,6 @@ if(isset($_POST['add'])){
  });  
  </script> 
 <?php 
-	include('modal.php');
+	
 	include('footer.php');
 ?>

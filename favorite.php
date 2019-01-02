@@ -3,7 +3,8 @@ session_start();
 include_once 'dbconnect.php';
 include 'header.php'; 
 ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script> 
+										<script src="js/rm.js"></script> 
 	</div>	
 				 <div class="clearfix"></div>
 				
@@ -53,7 +54,17 @@ include 'header.php';
 										</div>
 										</div>
 										<span class="rc-head">Recipe Details :</span>
-										<span class="rc-info"><?php echo $row3['des'];?></span>
+										<span class="rc-info">
+											<section id="demo">
+												<article class="slide"><p><?php echo $row3['des'];?></p></article>
+											</section>
+
+											</span>
+										
+
+										<script>
+										    $('article').readmore({maxHeight: 100});
+										  </script>
 									</div>
 								</div>
 						</div><?php }?>		

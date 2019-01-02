@@ -3,7 +3,8 @@ session_start();
 include_once 'dbconnect.php';
 include 'header.php'; 
 ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script> 
+										<script src="js/rm.js"></script> 
 	</div>	
 				 <div class="clearfix"></div>
 				
@@ -31,6 +32,17 @@ include 'header.php';
 			$content_id = $_GET['add'];
 			$query = "INSERT INTO FAVORITE (user_id,content_id) VALUES ('" . $_SESSION['usr_id'] . "','" . $content_id . "')";
 			$fire2 = mysqli_query($con,$query) or die("Cannot delete data from database".mysqli_error($con));
+		}
+		if (isset($_GET['search'])){
+			$ingredient = $_GET['searchvalue'];
+			$query = "SELECT * FROM content WHERE `content_protein` = $ingredient";
+			$fire3=mysqli_query($con,$query) or die("Cannot get data from database".mysqli_error($con));
+		}
+		if (isset($_GET['modal'])){
+			$content_id = $_GET['modal'];
+			$query = "SELECT * FROM content WHERE content_id=$content_id";
+			$fire3=mysqli_query($con,$query) or die("Cannot get data from database".mysqli_error($con));
+			$result=mysqli_fetch_assoc($fire3);
 		}
 		 if($sub==1){
 		 	//$id=$_SESSION['usr_id'];
@@ -63,30 +75,40 @@ include 'header.php';
 											$fire4 = mysqli_query($con,$query1);
 											if(!$row4 = mysqli_fetch_assoc($fire4)){
 										?>
-											<a class="btn btn-sm btn-danger" href="<?php $_SERVER['PHP_SELF']?>?add=<?php echo $row3['content_id']?>">Add to favorites</a> 
+											<a class="btn btn-sm btn-primary" href="<?php $_SERVER['PHP_SELF']?>?add=<?php echo $row3['content_id']?>">Add to favorites</a> 
 											<?php
 											}
 											else{
 												?>
-												<a class="link-fav" href="favorite.php"><p>Click to view favorite recipe</p></a>
+												<a class="btn btn-sm btn-primary" href="favorite.php"><p>Click to view favorite recipe</p></a>
 												<?php
 											}
 											?>
 										</div>
 										</div>
 										<span class="rc-head">Recipe Details :</span>
-										<span class="rc-info"><?php echo $row3['des'];?></span>
+										<span class="rc-info">
+											<section id="demo">
+												<article class="slide"><p><?php echo $row3['des'];?></p></article>
+											</section>
+
+											</span>
 										
+
+										<script>
+										    $('article').readmore({maxHeight: 100});
+										  </script>
 										
 									</div>
-								</div>
-						</div><?php }?>		
-					</div>
-					<div class="clearfix"></div>
-				</div>
+								</div>					
+						</div>
+					
+					<?php }?>		
+					
 			</form>
 		 </div>
 	 </div>
+</div>
 </div>
 		 <?php }
 		 else{?>
@@ -102,7 +124,7 @@ include 'header.php';
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
 		<a href="#" class="btn btn-primary btn btn-success" data-toggle="modal" data-target="#exampleModalLong">Paynow</a>
 	</div>
-</div>
+
 </div>	
 </div><?php
 		 }
@@ -120,9 +142,10 @@ include 'header.php';
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
 		<a href="login.php" class="btn btn-primary btn btn-success" >Login</a>
 	</div>
+
+
 </div>
-</div>	
-</div><?php
+		</div><?php
 		}
 		include('modal.php');
 		 include('footer.php');

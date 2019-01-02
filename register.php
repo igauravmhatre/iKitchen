@@ -69,7 +69,7 @@ if (isset($_POST['signup'])) {
 <div class="custom-login">
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4 well">
+        <div class="col-md-6 offset-md-3  well">
             <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
                 <fieldset>
                     <legend>Sign Up</legend>
@@ -115,11 +115,11 @@ if (isset($_POST['signup'])) {
             <span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4 text-center" style="color:#fff";>    
+  
+        <div class="col-md-6 offset-md-3  text-center" style="color:#fff";>    
         Already Registered? <a href="login.php" style="color:#fff";>Login Here</a>
         </div>
-    </div>
+    
 </div>
 </div>
 <script src="js/jquery-1.10.2.js"></script>

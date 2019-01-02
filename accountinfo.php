@@ -1,51 +1,75 @@
 <?php session_start();
+
 include 'dbconnect.php';
-include 'header.php';
+
 ?>
-			 </div>
-				 <div class="clearfix"></div>
-			  </div>
-<div class="gallery account-info pages">
-	  <div class="container">
-		 <h2>Account Settings</h2>	
-         <?php
+<?php
             if($_SESSION){
                 $id=$_SESSION['usr_id'];
                 $query= "SELECT * FROM users where `id`= $id";
                 $fire=mysqli_query($con,$query) or die(mysql_error());;
                 $row = mysqli_fetch_assoc($fire);
                 $id=$row['id'];
+                if(isset($_POST['update'])){
+                    $name = $_POST['name'];
+                    $email = $row['user_email'];
+                    $password = md5($_POST['password']);
+                    $query = "UPDATE users SET user_name = '$name', user_email = '$email', user_pass = '$password' WHERE id = '$id'";
+                    //$query = "UPDATE `crud` SET `fname`=['$fname'],`lname`=['$lname'],`email`=['$email'],`password`=['$password'] WHERE 1";
+                    $fire = mysqli_query($con,$query) or die("cannot update the data".mysqli_error($con));
+                    // if($fire) header("Location:accountinfo.php");
+                }
+                include 'header.php';
                 // echo $id;?>
+			 </div>
+				 <div class="clearfix"></div>
+			  </div>
+<div class="gallery account-info pages">
+	  <div class="container">
+		 <h2>Account Settings</h2>	
+
+
+                <div class="row">
+                <div class="col-md-8 offset-md-2">
+
+
                 <div class="info-content">
                     <div class="row pro-details">
-                        <div class="col-md-2"> 
+                        <div class="col-md-3"> 
                         <div id="mtabs">
                         <ul>
-                            <li class=""><a href="#bio" rel="tab1">Bio</a></li>
-                            <li class="active"><a href="#privacy" rel="tab2">Security</a></li>
+                            <li class="active"><a href="#bio" rel="tab1">Profile</a></li>
+                            <li class=""><a href="#privacy" rel="tab2">Edit Profile</a></li>
                         </ul>
                     </div>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-9">
                         <div id="mtabs_content_container">
                         <div id="bio" class="mtab_content" style="display: block;">
-                        <legend>Bio</legend>
+                        <legend>My Profile</legend>
                         <div class="pro-photo"><img src="images/t1.jpg" height="100%" width="100%" alt=""></DIV>
-                        <div><label for="name">Name: </label><?php echo $row['user_name'];?>   <a href="editinfo.php?upd=<?php echo $row['id']?>"><i class="fas fa-edit"></i></a></div>
-                <div><label for="name">Email: </label><?php echo $row['user_email'];?></div>
+                        <div>
+                            <label for="name">Name: </label>
+                            <?php echo $row['user_name'];?>   
+                                <a href="editinfo.php?upd=<?php echo $row['id']?>" >
+                                </a>
+                        </div>
+                        <div>
+                            <label for="name">Email: </label><?php echo $row['user_email'];?>
+                        </div>
                 <?php
             }
             else{
             echo "Account Deleted Successfully";
             }
             ?> 
-            <a class="btn btn-sm btn-warning" href="del_account.php?upd=<?php echo $row['id']?>">Delete Account</a>
+            <a class="btn btn-sm btn-danger" href="del_account.php?upd=<?php echo $row['id']?>">Delete Account</a>
                         <!-- <p><a id="simulate" href="#mtabs_wrapper#mtabs_content_container#tab2">bio</a></p>  -->
                         </div>
                         <div id="privacy" class="mtab_content"style="display: none;" > 
                         <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
                 <fieldset>
-                    <legend>Update Info</legend>
+                    <legend>Edit Profile</legend>
 
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -65,7 +89,7 @@ include 'header.php';
                         <span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
                     </div>
 
-                    <div class="form-group" style="text-align:center;">
+                    <div class="form-group">
                         <input type="submit" name="update" value="Update Info" class="btn btn-primary"/>
                     </div>
                 </fieldset>
@@ -78,8 +102,8 @@ include 'header.php';
                         </div>
                     </div>
             </div>
-
-		 
+</div>
+		 </div>
 	 </div>
 </div>
 

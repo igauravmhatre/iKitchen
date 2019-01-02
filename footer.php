@@ -1,6 +1,6 @@
 <div class="footer">
 	 <div class="container">
-		 <div class="footer-sec">
+		 <div class="row footer-sec">
 			 <div class="col-md-4 ftr-grid1">
 				 <h3>Latest Tweets</h3>
 				 <div class="twts">
